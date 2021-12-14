@@ -66,7 +66,14 @@ class ToDoTableViewController: UITableViewController , ToDoDelegate {
         
         cell.titleLabel.text = tasks[indexPath.row].title
         cell.noteLabel.text = tasks[indexPath.row].note
-        cell.dueDateLabel.text = "\(tasks[indexPath.row].dueDate!)"
+        
+
+        let dateFormatter = DateFormatter()
+                dateFormatter.dateStyle = .short
+                dateFormatter.timeStyle = .medium
+                let dateString = dateFormatter.string(from: tasks[indexPath.row].dueDate!)
+        
+        cell.dueDateLabel.text = dateString
      
         return cell
     }

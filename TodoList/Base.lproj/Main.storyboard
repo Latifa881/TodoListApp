@@ -118,6 +118,7 @@
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="bsI-4O-yuf">
                                         <rect key="frame" x="0.0" y="556" width="374" height="200"/>
                                         <color key="backgroundColor" red="0.59768069550000003" green="0.71150308959999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" red="0.59768069550000003" green="0.71150308959999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="200" id="hvY-DR-gtu"/>
                                         </constraints>
