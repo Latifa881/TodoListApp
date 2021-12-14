@@ -57,6 +57,20 @@ class ToDoTableViewController: UITableViewController , ToDoDelegate {
         dismiss(animated: true, completion: nil)
         
     }
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        let item = tasks[indexPath.row]
+        managedObjectContext.delete(item)
+                
+                do {
+                    try managedObjectContext.save()
+                   
+                }catch{
+                    print(error.localizedDescription)
+                }
+        tasks.remove(at: indexPath.row)
+        tableView.reloadData()
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tasks.count
     }
@@ -64,9 +78,12 @@ class ToDoTableViewController: UITableViewController , ToDoDelegate {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath) as! ToDoTableViewCell
         
-        cell.titleLabel.text = tasks[indexPath.row].title
-        cell.noteLabel.text = tasks[indexPath.row].note
-        
+        cell.titleLabel.text = " \(tasks[indexPath.row].title!)"
+        cell.noteLabel.text = " \(tasks[indexPath.row].note!)"
+//        cell.mainStackView.layer.borderColor=UIColor.gray.cgColor
+//        cell.mainStackView.layer.borderWidth=2
+        cell.mainStackView.layer.cornerRadius = 10
+        cell.mainStackView.clipsToBounds=true
 
         let dateFormatter = DateFormatter()
                 dateFormatter.dateStyle = .short
