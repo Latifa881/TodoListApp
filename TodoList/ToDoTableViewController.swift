@@ -80,15 +80,14 @@ class ToDoTableViewController: UITableViewController , ToDoDelegate {
         
         cell.titleLabel.text = " \(tasks[indexPath.row].title!)"
         cell.noteLabel.text = " \(tasks[indexPath.row].note!)"
-//        cell.mainStackView.layer.borderColor=UIColor.gray.cgColor
-//        cell.mainStackView.layer.borderWidth=2
+
         cell.mainStackView.layer.cornerRadius = 10
         cell.mainStackView.clipsToBounds=true
 
         let dateFormatter = DateFormatter()
-                dateFormatter.dateStyle = .short
-                dateFormatter.timeStyle = .medium
-                let dateString = dateFormatter.string(from: tasks[indexPath.row].dueDate!)
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+        let dateString = dateFormatter.string(from: tasks[indexPath.row].dueDate!)
         
         cell.dueDateLabel.text = dateString
      
